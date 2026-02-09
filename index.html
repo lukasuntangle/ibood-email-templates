@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBOOD Email Templates - CRO Showcase</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1E0033; color: #fff; }
+
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-size: 20px; font-weight: 800; }
+        .nav-logo span { color: #FC5628; }
+        .nav-subtitle { font-size: 12px; color: #888; }
+        .nav-tabs { display: flex; gap: 6px; }
+        .nav-tab { background: rgba(255,255,255,0.08); color: #aaa; padding: 8px 16px; border-radius: 8px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .nav-tab:hover { background: rgba(255,107,53,0.15); color: #FC5628; }
+        .nav-tab.active { background: #FC5628; color: #fff; }
+
+        /* Main */
+        .main { padding-top: 70px; }
+
+        /* Hero Section */
+        .hero-section { text-align: center; padding: 60px 24px 40px; }
+        .hero-section h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+        .hero-section h1 span { color: #FC5628; }
+        .hero-section p { font-size: 16px; color: #888; max-width: 600px; margin: 0 auto 30px; }
+        .stats-row { display: flex; justify-content: center; gap: 40px; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 28px; font-weight: 800; color: #FC5628; }
+        .stat-label { font-size: 12px; color: #666; }
+
+        /* Template Display */
+        .template-section { max-width: 1200px; margin: 0 auto; padding: 20px 24px 60px; }
+
+        .template-view { display: none; }
+        .template-view.active { display: block; }
+
+        .template-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+        .template-info { }
+        .template-number { font-size: 12px; color: #FC5628; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+        .template-name { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .template-desc { font-size: 14px; color: #888; max-width: 500px; }
+
+        .template-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .template-tag { background: rgba(255,255,255,0.08); color: #aaa; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+        .template-tag.focus { background: rgba(255,107,53,0.15); color: #FC5628; }
+
+        .template-content { display: flex; gap: 30px; align-items: flex-start; }
+
+        .preview-frame { flex: 0 0 620px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .preview-toolbar { background: #e8e8e8; padding: 8px 12px; display: flex; align-items: center; gap: 6px; }
+        .preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .preview-dot.r { background: #ff5f57; }
+        .preview-dot.y { background: #ffbd2e; }
+        .preview-dot.g { background: #28c840; }
+        .preview-iframe { width: 100%; height: 800px; border: none; }
+
+        .insights-panel { flex: 1; position: sticky; top: 90px; }
+        .insight-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.08); }
+        .insight-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: #FC5628; }
+        .insight-card ul { list-style: none; }
+        .insight-card li { font-size: 13px; color: #bbb; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5; }
+        .insight-card li:before { content: "→"; position: absolute; left: 0; color: #FC5628; }
+
+        .hypothesis-card { background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,68,68,0.1) 100%); border: 1px solid rgba(255,107,53,0.2); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+        .hypothesis-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #FC5628; }
+        .hypothesis-card p { font-size: 13px; color: #ccc; line-height: 1.6; }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .template-content { flex-direction: column; }
+            .preview-frame { flex: none; width: 100%; }
+            .insights-panel { position: static; }
+            .nav-tabs { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div>
+                <div class="nav-logo">i<span>BOOD</span> Email CRO</div>
+                <div class="nav-subtitle">5 Template Varianten</div>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTemplate(0)">1. Urgency</button>
+                <button class="nav-tab" onclick="showTemplate(1)">2. Price Punch</button>
+                <button class="nav-tab" onclick="showTemplate(2)">3. Social Proof</button>
+                <button class="nav-tab" onclick="showTemplate(3)">4. Single Focus</button>
+                <button class="nav-tab" onclick="showTemplate(4)">5. Mobile First</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main">
+        <!-- Hero -->
+        <div class="hero-section">
+            <h1>Daily Deals <span>Email Templates</span></h1>
+            <p>5 conversion-geoptimaliseerde varianten voor de iBOOD dagelijkse deals newsletter. Elke variant test een andere CRO-hypothese.</p>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">500K</div>
+                    <div class="stat-label">Dagelijkse ontvangers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">Huidige open rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Template varianten</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Templates -->
+        <div class="template-section">
+            <!-- Template 1: Urgency -->
+            <div class="template-view active">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 1 van 5</div>
+                        <div class="template-name">Urgency-First</div>
+                        <div class="template-desc">Countdown timers, voorraad indicatoren, en "bijna uitverkocht" badges om directe actie te triggeren.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">FOMO</span>
+                            <span class="template-tag focus">Schaarste</span>
+                            <span class="template-tag">Stock levels</span>
+                            <span class="template-tag">Countdown</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-1-urgency.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Door urgentie-elementen toe te voegen (countdown, voorraad indicators, "bijna op" badges) verwachten we dat de CTR met 15-25% stijgt omdat gebruikers sneller beslissen bij verliesaversie.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Countdown timer bovenaan (aftellen tot einde dag)</li>
+                                <li>Live kijkers badge ("847 mensen bekijken dit nu")</li>
+                                <li>Voorraad balk per product met resterende stuks</li>
+                                <li>"Bijna op" badges op sub-deals</li>
+                                <li>CTA: "Claim Jouw Dyson - Op = Op!"</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>CTR hero deal: +20-30%</li>
+                                <li>CTR sub-deals: +10-15%</li>
+                                <li>Risico: Kan "spammy" overkomen bij dagelijks gebruik</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 2: Price Punch -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 2 van 5</div>
+                        <div class="template-name">Price Punch</div>
+                        <div class="template-desc">Maximale focus op prijzen en besparingen. Elke deal toont hoeveel je bespaart in euro's, niet alleen percentages.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Besparing in EUR</span>
+                            <span class="template-tag focus">Prijs hierarchie</span>
+                            <span class="template-tag">Dark theme</span>
+                            <span class="template-tag">Contrast</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-2-price-punch.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Door besparingen in euro's te tonen (niet alleen %) en prijzen visueel dominant te maken, verwachten we hogere conversie omdat de "waarde" concreter voelt. "Bespaar €299" is krachtiger dan "-40%".</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Dark theme voor premium/contrast gevoel</li>
+                                <li>Prijs-flow: was → nu met visuele arrow</li>
+                                <li>Besparing in EUR prominent ("JE BESPAART €299,05")</li>
+                                <li>Groene bespaar-badges op sub-deals</li>
+                                <li>Flash sales met "vanaf €X" prijsdrempels</li>
+                                <li>Footer met maximale besparing samenvatting</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>CTR hero deal: +15-20% (concrete besparing)</li>
+                                <li>Gemiddelde orderwaarde: +5-10% (waarde-perceptie)</li>
+                                <li>Risico: Dark theme kan bij sommige clients anders renderen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 3: Social Proof -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 3 van 5</div>
+                        <div class="template-name">Social Proof</div>
+                        <div class="template-desc">Reviews, "X verkocht", live shoppers, en community-driven badges om vertrouwen en FOMO te combineren.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Reviews</span>
+                            <span class="template-tag focus">Verkocht aantallen</span>
+                            <span class="template-tag">Community</span>
+                            <span class="template-tag">Badges</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-3-social-proof.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Social proof verlaagt aankoopangst en verhoogt vertrouwen. "1.247 verkocht" en "Marloes uit Utrecht kocht dit 2 min geleden" triggert bandwagon effect. Verwachte lift: 20-30% op CTR.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Live shoppers counter in header</li>
+                                <li>"12.847 deals gescoord" dagelijks bewijs</li>
+                                <li>Star ratings en review counts op producten</li>
+                                <li>"Marloes uit Utrecht kocht dit 2 min geleden"</li>
+                                <li>Populair / Trending / Nieuw badges</li>
+                                <li>Verkocht aantallen per product</li>
+                                <li>Customer review in footer</li>
+                                <li>Trending categorieën met aantallen</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>CTR hero: +20-30% (social proof + FOMO)</li>
+                                <li>CTR sub-deals: +15-20% (ratings + badges)</li>
+                                <li>Nieuw gebruikers conversie: +25% (vertrouwen)</li>
+                                <li>Risico: Nep-gevoel als data niet real-time is</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 4: Single Focus -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 4 van 5</div>
+                        <div class="template-name">Single Focus Hero</div>
+                        <div class="template-desc">De hero deal domineert 60% van de viewport. Sub-deals zijn geminimaliseerd. Minder keuzes = meer conversie (Hick's Law).</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Hero dominant</span>
+                            <span class="template-tag focus">Minder keuzes</span>
+                            <span class="template-tag">Hick's Law</span>
+                            <span class="template-tag">Storytelling</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-4-single-focus.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Door de hero deal 60%+ van de viewport te geven en sub-deals te vereenvoudigen, verlagen we keuzestress. Hick's Law: minder opties = snellere beslissingen = hogere hero CTR.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Full-width hero met gradient achtergrond</li>
+                                <li>Playful copy: "De stofzuiger die je leven verandert. Serieus."</li>
+                                <li>Feature iconen (laser, accu, scherm, verzending)</li>
+                                <li>CTA sub-tekst: "Morgen weer gewoon €749"</li>
+                                <li>Horizontale scroll strip voor sub-deals</li>
+                                <li>Compacte lijst-view voor resterende deals</li>
+                                <li>Flash sales als chips (tags) in plaats van blokken</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>Hero deal CTR: +30-40% (dominante focus)</li>
+                                <li>Sub-deals CTR: -10% (minder prominent)</li>
+                                <li>Totale revenue: +10-15% als hero deal sterk is</li>
+                                <li>Risico: Werkt alleen als hero deal echt goed is</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 5: Mobile First -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 5 van 5</div>
+                        <div class="template-name">Mobile-First</div>
+                        <div class="template-desc">420px breed, single column, 44px+ tap targets, thumb-friendly. Ontworpen voor 70%+ mobile opens.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Single column</span>
+                            <span class="template-tag focus">44px tap targets</span>
+                            <span class="template-tag">Thumb-friendly</span>
+                            <span class="template-tag">420px max</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame" style="flex: 0 0 440px;">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-5-mobile-first.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>70%+ van email opens is mobile. Door specifiek voor mobile te ontwerpen (single column, grote tap targets, leesbare prijzen) verwachten we 20-30% hogere mobile CTR.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Max-width 420px (echte telefoon breedte)</li>
+                                <li>Single column layout - geen grids</li>
+                                <li>Alle CTAs minimaal 44px hoog (Apple guideline)</li>
+                                <li>Lijstweergave voor deals (scanbaar met duim)</li>
+                                <li>Grote product afbeeldingen</li>
+                                <li>Flash sales als kaarten (niet tabel)</li>
+                                <li>Footer buttons met voldoende padding</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>Mobile CTR: +20-30%</li>
+                                <li>Mobile conversie: +15-20%</li>
+                                <li>Scroll depth: +40% (beter scanbaar)</li>
+                                <li>Risico: Desktop experience minder visueel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTemplate(index) {
+            document.querySelectorAll('.template-view').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+            document.querySelectorAll('.nav-tab').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
