@@ -48,6 +48,11 @@
         .template-tag { background: rgba(255,255,255,0.08); color: #aaa; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
         .template-tag.focus { background: rgba(255,107,53,0.15); color: #FC5628; }
 
+        .template-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .view-link { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,107,53,0.15); color: #FC5628; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s; border: 1px solid rgba(255,107,53,0.3); }
+        .view-link:hover { background: #FC5628; color: #fff; }
+        .view-link svg { width: 14px; height: 14px; }
+
         .template-content { display: flex; gap: 30px; align-items: flex-start; }
 
         .preview-frame { flex: 0 0 620px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
@@ -84,7 +89,7 @@
         <div class="nav-inner">
             <div>
                 <div class="nav-logo">i<span>BOOD</span> Email CRO</div>
-                <div class="nav-subtitle">8 Template Varianten</div>
+                <div class="nav-subtitle">10 Template Varianten</div>
             </div>
             <div class="nav-tabs">
                 <button class="nav-tab active" onclick="showTemplate(0)">1. Urgency</button>
@@ -95,6 +100,8 @@
                 <button class="nav-tab" onclick="showTemplate(5)">6. Bold</button>
                 <button class="nav-tab" onclick="showTemplate(6)">7. Editorial</button>
                 <button class="nav-tab" onclick="showTemplate(7)">8. Dark</button>
+                <button class="nav-tab" onclick="showTemplate(8)">9. Amazon</button>
+                <button class="nav-tab" onclick="showTemplate(9)">10. Woot</button>
             </div>
         </div>
     </nav>
@@ -103,7 +110,7 @@
         <!-- Hero -->
         <div class="hero-section">
             <h1>Daily Deals <span>Email Templates</span></h1>
-            <p>8 conversion-geoptimaliseerde varianten voor de iBOOD dagelijkse deals newsletter. Van urgency-driven tot Nike-inspired designs.</p>
+            <p>10 conversion-geoptimaliseerde varianten voor de iBOOD dagelijkse deals newsletter. Van urgency-driven tot Amazon en Woot-inspired designs.</p>
             <div class="stats-row">
                 <div class="stat">
                     <div class="stat-value">500K</div>
@@ -114,7 +121,7 @@
                     <div class="stat-label">Huidige open rate</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">8</div>
+                    <div class="stat-value">10</div>
                     <div class="stat-label">Template varianten</div>
                 </div>
             </div>
@@ -134,6 +141,12 @@
                             <span class="template-tag focus">Schaarste</span>
                             <span class="template-tag">Stock levels</span>
                             <span class="template-tag">Countdown</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-1-urgency.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -186,6 +199,12 @@
                             <span class="template-tag">Dark theme</span>
                             <span class="template-tag">Contrast</span>
                         </div>
+                        <div class="template-actions">
+                            <a href="template-2-price-punch.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="template-content">
@@ -237,6 +256,12 @@
                             <span class="template-tag focus">Verkocht aantallen</span>
                             <span class="template-tag">Community</span>
                             <span class="template-tag">Badges</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-3-social-proof.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -293,6 +318,12 @@
                             <span class="template-tag">Hick's Law</span>
                             <span class="template-tag">Storytelling</span>
                         </div>
+                        <div class="template-actions">
+                            <a href="template-4-single-focus.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="template-content">
@@ -346,6 +377,12 @@
                             <span class="template-tag focus">44px tap targets</span>
                             <span class="template-tag">Thumb-friendly</span>
                             <span class="template-tag">420px max</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-5-mobile-first.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -401,6 +438,12 @@
                             <span class="template-tag">Minimalist</span>
                             <span class="template-tag">Hero Focus</span>
                         </div>
+                        <div class="template-actions">
+                            <a href="template-6-bold-hero.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="template-content">
@@ -453,6 +496,12 @@
                             <span class="template-tag focus">Storytelling</span>
                             <span class="template-tag">Serif Fonts</span>
                             <span class="template-tag">Curated</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-7-editorial.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -507,6 +556,12 @@
                             <span class="template-tag">Premium</span>
                             <span class="template-tag">Native Dark Mode</span>
                         </div>
+                        <div class="template-actions">
+                            <a href="template-8-dark-mode.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="template-content">
@@ -541,6 +596,126 @@
                                 <li>Dark mode users: +40% engagement</li>
                                 <li>Brand differentiation: high</li>
                                 <li>Risico: Rendering issues in sommige clients</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 9: Amazon Style -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 9 van 10</div>
+                        <div class="template-name">Amazon Style</div>
+                        <div class="template-desc">Geïnspireerd door Amazon: gele CTA knoppen, star ratings, Lightning Deal badges, en "Deal van de Dag" banners. Vertrouwd en conversie-gericht.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Amazon-inspired</span>
+                            <span class="template-tag focus">Lightning Deals</span>
+                            <span class="template-tag">Star Ratings</span>
+                            <span class="template-tag">Yellow CTAs</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-9-amazon-style.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-9-amazon-style.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Amazon's herkenbare design-patronen (gele knoppen, sterren, Lightning badges) zijn ingesleten bij consumenten. Door deze te gebruiken verhogen we direct vertrouwen en herkenning, wat leidt tot hogere CTR.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Grijze achtergrond (#EAEDED) voor herkenbaar Amazon gevoel</li>
+                                <li>Gele CTA knoppen met afgeronde hoeken</li>
+                                <li>Star ratings met review counts</li>
+                                <li>"Lightning Deal" badges met bliksem icoon</li>
+                                <li>"Deal van de Dag" banner met countdown</li>
+                                <li>3-koloms product grid</li>
+                                <li>Categorie tiles met thumbnails</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>CTR: +25-35% (vertrouwde patronen)</li>
+                                <li>Conversie: +20% (Amazon association)</li>
+                                <li>Trust score: +40% (herkenbaar design)</li>
+                                <li>Risico: Kan te "corporate" aanvoelen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 10: Woot Style -->
+            <div class="template-view">
+                <div class="template-header">
+                    <div class="template-info">
+                        <div class="template-number">Template 10 van 10</div>
+                        <div class="template-name">Woot Style</div>
+                        <div class="template-desc">Geïnspireerd door Woot: speelse copy, urgentie-stats, grappige headlines, en een donker thema met felle accenten. Fun en FOMO gecombineerd.</div>
+                        <div class="template-tags">
+                            <span class="template-tag focus">Woot-inspired</span>
+                            <span class="template-tag focus">Playful Copy</span>
+                            <span class="template-tag">Urgency Stats</span>
+                            <span class="template-tag">Dark Theme</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="template-10-woot-style.html" target="_blank" class="view-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                Open in nieuw venster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="preview-frame">
+                        <div class="preview-toolbar">
+                            <span class="preview-dot r"></span>
+                            <span class="preview-dot y"></span>
+                            <span class="preview-dot g"></span>
+                        </div>
+                        <iframe class="preview-iframe" src="template-10-woot-style.html"></iframe>
+                    </div>
+                    <div class="insights-panel">
+                        <div class="hypothesis-card">
+                            <h3>Hypothese</h3>
+                            <p>Woot's speelse, irreverente tone-of-voice creëert een unieke merkervaring. De combinatie van humor en extreme urgentie ("Je buren hebben 'm al") triggert zowel entertainment als FOMO.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Wat is nieuw</h3>
+                            <ul>
+                                <li>Donker thema met teal (#4ecca3) en coral (#e94560) accenten</li>
+                                <li>Speelse headlines: "JE BUREN HEBBEN 'M AL"</li>
+                                <li>Urgentie stats panel (% verkocht, voorraad, tijd)</li>
+                                <li>"Andere dingen die je niet nodig hebt" sectie</li>
+                                <li>Grappige categorie beschrijvingen</li>
+                                <li>Urgency badges: "12 DEALS - 5 BIJNA OP!"</li>
+                                <li>Playful footer met community toon</li>
+                            </ul>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Verwachte impact</h3>
+                            <ul>
+                                <li>Engagement: +40% (entertainment value)</li>
+                                <li>CTR: +30% (curiosity + FOMO)</li>
+                                <li>Share rate: +50% (memorable content)</li>
+                                <li>Risico: Niet geschikt voor alle doelgroepen</li>
                             </ul>
                         </div>
                     </div>
